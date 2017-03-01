@@ -1,0 +1,27 @@
+<h1> <%= @current_user.username %>'s Likes </h1>
+
+<div class="row">
+<div class="col-md-12">
+<table class="table table=striped tabel-hover">
+  <tr>
+    <th>User</th>
+    <th>Photo</th>
+    <th>Caption</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @likes.each do |like| %>
+  <tr>
+    <td><%= like.user_id %></td>
+    <td><img src="<%= like.photo.image %>" width="250"></td>
+    <td><%= like.photo.caption %> </td>
+    <td>
+      <a href="/likes/<%= like.id %>" class="btn btn-primary">Show</a>
+      <a href="/likes/<%= like.id %>/edit" class="btn btn-warning">Edit</a>
+      <a href="/delete_like/<%= like.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+    </td>
+  </tr>
+  <%end%>
+</table>
+</div>
+</div>
